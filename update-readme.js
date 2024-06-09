@@ -1,12 +1,12 @@
 const fs = require('fs');
-const fetch = require('node-fetch');
 const xml2js = require('xml2js');
 
 const SUBSTACK_RSS_FEED_URL = 'https://advaithu.substack.com/feed';
 const MAX_EDITIONS = 5;
 
 async function fetchLatestEditions() {
-  const response = await fetch(SUBSTACK_RSS_FEED_URL);
+  const fetch = await import('node-fetch');  
+  const response = await fetch.default(SUBSTACK_RSS_FEED_URL);
   const data = await response.text();
 
   const parser = new xml2js.Parser();
