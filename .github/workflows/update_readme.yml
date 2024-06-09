@@ -26,7 +26,7 @@ jobs:
 
     # Update README
     - name: Update README with Substack Newsletter
-      run: node update-readme.js
+      run: node update-readme.mjs
 
     # # Commit and push changes
     # - name: Commit and push changes
