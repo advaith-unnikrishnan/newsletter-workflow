@@ -15,9 +15,9 @@ jobs:
 
       - name: latest newsletter
         id: fetch-newsletter
-        uses: <your-github-username>/<your-action-repo>@main
+        uses: advaith-unnikrishnan/newsletter-workflow@main
         with:
-          rss_url: 'https://<your-substack>.substack.com/feed'
+          rss_url: 'https://advaithu.substack.com/feed'
 
       - name: Update README
         run: |
