@@ -1,5 +1,8 @@
 name: Update README with Newsletter
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 * * * *' # Runs every hour
@@ -23,5 +26,13 @@ jobs:
         run: |
           echo "Updating README with the latest newsletter edition"
           python update_readme.py "${{ steps.fetch-newsletter.outputs.latest_newsletter }}"
+      
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m "Update README with latest newsletter"
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
