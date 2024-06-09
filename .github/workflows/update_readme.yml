@@ -16,7 +16,7 @@ jobs:
 
     # Install Node.js
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/node-versions@v3
       with:
         node-version: 20.1.0
 
