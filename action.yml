@@ -8,5 +8,5 @@ outputs:
   latest_newsletter:
     description: 'The latest newsletter content'
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: 'node16'
+  main: 'update-readme.js'
