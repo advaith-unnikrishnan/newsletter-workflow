@@ -9,4 +9,4 @@ outputs:
     description: 'The latest newsletter content'
 runs:
   using: 'node12'
-  main: 'newsletter-workflow.js'
+  main: 'index.js'
