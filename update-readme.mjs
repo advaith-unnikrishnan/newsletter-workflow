@@ -1,19 +1,19 @@
 import fs from 'fs';
-import fetch from 'node-fetch';
-import xml2js from 'xml2js';
+// import fetch from 'node-fetch';
+// import xml2js from 'xml2js';
 
-const SUBSTACK_RSS_FEED_URL = 'https://advaithu.substack.com/feed';
-const MAX_EDITIONS = 5;
+// const SUBSTACK_RSS_FEED_URL = 'https://advaithu.substack.com/feed';
+// const MAX_EDITIONS = 5;
 
-async function fetchLatestEditions() { 
-  const response = await fetch(SUBSTACK_RSS_FEED_URL);
-  const data = await response.text();
+// async function fetchLatestEditions() { 
+//   const response = await fetch(SUBSTACK_RSS_FEED_URL);
+//   const data = await response.text();
 
-  const parser = new xml2js.Parser();
-  const feed = await parser.parseStringPromise(data);
+//   const parser = new xml2js.Parser();
+//   const feed = await parser.parseStringPromise(data);
 
-  return feed.rss.channel[0].item.slice(0, MAX_EDITIONS);
-}
+//   return feed.rss.channel[0].item.slice(0, MAX_EDITIONS);
+// }
 
 async function updateReadme(editions) {
   const readmeFile = 'README.md';
@@ -28,7 +28,7 @@ async function updateReadme(editions) {
       foundSection = true;
       updatedLines.push(line);
       for (const edition of editions) {
-        updatedLines.push(`- [${edition.title[0]}](${edition.link[0]})`);
+        updatedLines.push(`newsletter title will appear here`);
       }
       updatedLines.push('<!-- SUBSTACK_NEWSLETTER_END -->');
     } else if (line.trim() === '<!-- SUBSTACK_NEWSLETTER_END -->') {
@@ -47,6 +47,8 @@ async function main() {
   const editions = await fetchLatestEditions();
   await updateReadme(editions);
 }
+
+// - [${edition.title[0]}](${edition.link[0]})
 
 main().catch(error => {
   console.error(error);
