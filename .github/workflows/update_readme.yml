@@ -3,7 +3,7 @@ name: Update README with Substack Newsletter
 on:
   schedule:
     - cron: '0 0 * * *' # Runs every day at midnight
-  workflow_dispatch:
+  workflow_dispatch: # Allow manual workflow runs
 
 jobs:
   update-readme:
@@ -11,7 +11,8 @@ jobs:
 
     steps:
     # Checkout the repository
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
     # Install Node.js
     - name: Setup Node.js
@@ -25,8 +26,6 @@ jobs:
 
     # Update README
     - name: Update README with Substack Newsletter
-      env:
-        SUBSTACK_API_KEY: ${{ secrets.SUBSTACK_API_KEY }}
       run: node update-readme.js
 
     # Commit and push changes
