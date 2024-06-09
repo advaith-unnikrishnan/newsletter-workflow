@@ -1,4 +1,4 @@
 # Newsletter Workflow
 
-<!-- SUBSTACK_NEWSLETTER_START -->
-<!-- SUBSTACK_NEWSLETTER_END -->
+<!-- Newsletter_Start -->
+<!-- Newsletter_End -->
