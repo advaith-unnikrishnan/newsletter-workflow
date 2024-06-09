@@ -15,7 +15,7 @@ jobs:
 
       - name: latest newsletter
         id: fetch-newsletter
-        uses: advaith-unnikrishnan/newsletter-workflow@v1.0.0
+        uses: advaith-unnikrishnan/newsletter-workflow@master
         with:
           rss_url: 'https://advaithu.substack.com/feed'
 
